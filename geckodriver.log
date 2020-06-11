@@ -1,0 +1,142 @@
+1591725059740	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileFUlWIV"
+1591725068004	Marionette	INFO	Listening on port 37877
+1591725068079	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1591725186151	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile6dGtlC"
+1591725199693	Marionette	INFO	Listening on port 38309
+1591725199713	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1591725274497	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileP4wLPI"
+1591725284084	Marionette	INFO	Listening on port 45197
+1591725284142	Marionette	WARN	TLS certificate errors will be ignored for this session
+1591725512417	Marionette	INFO	Stopped listening on port 45197
+1591725719521	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileCLMEDq"
+1591725731354	Marionette	INFO	Listening on port 39785
+1591725731381	Marionette	WARN	TLS certificate errors will be ignored for this session
+1591726959514	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile8DeWcv"
+1591726966660	Marionette	INFO	Listening on port 34271
+1591726966750	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x6B0029,name=PNecko::Msg_RemoveRequestContext) Channel closing: too late to send/recv, messages will be lost
+
+1591728604864	Marionette	INFO	Stopped listening on port 39785
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1591728606850	Marionette	INFO	Stopped listening on port 34271
+1591731746984	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile4evQ8B"
+1591731754140	Marionette	INFO	Listening on port 33655
+1591731754212	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+1591732062786	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileiZ1RX3"
+1591732067359	Marionette	INFO	Listening on port 38239
+1591732067407	Marionette	WARN	TLS certificate errors will be ignored for this session
+1591732082020	Marionette	INFO	Stopped listening on port 33655
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1591732398637	Marionette	INFO	Stopped listening on port 38239
+1591732565615	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileVD9pkP"
+1591732573200	Marionette	INFO	Listening on port 34163
+1591732573247	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: services.settings: 
+  Message: Error: IndexedDB: security-state/onecrl clear() IndexedDB: security-state/onecrl saveMetadata() IndexedDB:  execute() The application is shutting down
+  Stack:
+    IndexedDBError@resource://services-settings/IDBHelpers.jsm:22:15
+ShutdownError@resource://services-settings/IDBHelpers.jsm:32:5
+executeIDB@resource://services-settings/Database.jsm:376:13
+saveMetadata@resource://services-settings/Database.jsm:187:13
+clear@resource://services-settings/Database.jsm:245:18
+observe@resource://gre/modules/AsyncShutdown.jsm:554:16
+
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1591733049562	Marionette	INFO	Stopped listening on port 34163
+1591734134094	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilePXY06h"
+1591734154356	Marionette	INFO	Listening on port 38969
+1591734154384	Marionette	WARN	TLS certificate errors will be ignored for this session
+1591734230144	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile0KYY6S"
+1591734240628	Marionette	INFO	Stopped listening on port 38969
+1591734243712	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilejnOJhO"
+1591734248359	Marionette	INFO	Listening on port 34713
+1591734248436	Marionette	WARN	TLS certificate errors will be ignored for this session
+1591734294460	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileyu0wXN"
+1591734301137	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileda60Rw"
+JavaScript error: resource://gre/modules/UpdateTimerManager.jsm, line 352: TypeError: setting getter-only property "gLogEnabled"
+JavaScript error: resource://gre/modules/ModulesPing.jsm, line 70: NS_ERROR_XPC_JAVASCRIPT_ERROR_WITH_DETAILS: [JavaScript Error: "setting getter-only property "gLogEnabled"" {file: "resource://gre/modules/UpdateTimerManager.jsm" line: 352}]'[JavaScript Error: "setting getter-only property "gLogEnabled"" {file: "resource://gre/modules/UpdateTimerManager.jsm" line: 352}]' when calling method: [nsIUpdateTimerManager::registerTimer]
+1591734307337	Marionette	INFO	Stopped listening on port 34713
+1591734311316	Marionette	INFO	Listening on port 41717
+1591734311383	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1591734503226	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileyafuWv"
+1591734524483	Marionette	INFO	Listening on port 44237
+1591734524518	Marionette	WARN	TLS certificate errors will be ignored for this session
+1591734796415	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiletTV9YB"
+1591734812128	Marionette	INFO	Listening on port 36963
+1591734812169	Marionette	WARN	TLS certificate errors will be ignored for this session
+1591734943432	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileIi4ZbN"
+1591734959731	Marionette	INFO	Listening on port 41119
+1591734959822	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1591734969687	Marionette	INFO	Stopped listening on port 36963
+1591734971319	Marionette	INFO	Stopped listening on port 44237
+console.error: "Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers."
+SourceActor threw an exception: Error: Failed to fetch https://partner.googleadservices.com/gampad/cookie.js?domain=www.situacao-cadastral.com&callback=_gfp_s_&client=ca-pub-0028188661164977. Code 2153390067.
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:547:16
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 547, column: 16
+console.error: (new Error("Failed to fetch https://partner.googleadservices.com/gampad/cookie.js?domain=www.situacao-cadastral.com&callback=_gfp_s_&client=ca-pub-0028188661164977. Code 2153390067.", "resource://devtools/shared/DevToolsUtils.js", 547))
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 547: Error: Failed to fetch https://partner.googleadservices.com/gampad/cookie.js?domain=www.situacao-cadastral.com&callback=_gfp_s_&client=ca-pub-0028188661164977. Code 2153390067.
+SourceActor threw an exception: Error: Failed to fetch https://in.getclicky.com/in.php?site_id=100536568&type=pageview&href=%2Fcpf-03715447184.html&title=Resultado%3A%20CPF%20-%20037.154.471-84%20-%20Regular&res=1920x1080&lang=en&jsuid=3164146164&hmset&mime=js&x=0.9753464789099527. Code 2153390067.
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:547:16
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 547, column: 16
+console.error: (new Error("Failed to fetch https://in.getclicky.com/in.php?site_id=100536568&type=pageview&href=%2Fcpf-03715447184.html&title=Resultado%3A%20CPF%20-%20037.154.471-84%20-%20Regular&res=1920x1080&lang=en&jsuid=3164146164&hmset&mime=js&x=0.9753464789099527. Code 2153390067.", "resource://devtools/shared/DevToolsUtils.js", 547))
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 547: Error: Failed to fetch https://in.getclicky.com/in.php?site_id=100536568&type=pageview&href=%2Fcpf-03715447184.html&title=Resultado%3A%20CPF%20-%20037.154.471-84%20-%20Regular&res=1920x1080&lang=en&jsuid=3164146164&hmset&mime=js&x=0.9753464789099527. Code 2153390067.
+1591735205347	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilese9MoI"
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1591735216315	Marionette	INFO	Stopped listening on port 41119
+1591735217072	Marionette	INFO	Listening on port 37883
+1591735217095	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: "Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers."
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 558"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:558:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 558, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 558: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1591735264339	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileHNTQV7"
+1591735283524	Marionette	INFO	Listening on port 36223
+1591735283682	Marionette	WARN	TLS certificate errors will be ignored for this session
+1591735406201	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileV0WJFe"
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1591735414346	Marionette	INFO	Stopped listening on port 36223
+1591735417372	Marionette	INFO	Listening on port 40005
+1591735417454	Marionette	WARN	TLS certificate errors will be ignored for this session
+1591755450138	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileoGfE9P"
+1591755459635	Marionette	INFO	Listening on port 39095
+1591755459675	Marionette	WARN	TLS certificate errors will be ignored for this session
+1591755746142	Marionette	INFO	Stopped listening on port 39095
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.

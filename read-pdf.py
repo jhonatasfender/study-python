@@ -10,7 +10,7 @@ from pdf2image import pdf2image, convert_from_path
 # url = 'http://localhost:8000/test.pdf'
 from pytesseract import image_to_string
 
-url = "https://edj.trf1.jus.br/edj/bitstream/handle/123/17491/Cadernos_JUD_BA_2019-04-11_XI_67.pdf?sequence=1&isAllowed=y"
+url = "http://www.copese.uft.edu.br/resultado_vestibular_2012_02_UFT.pdf"
 response = requests.get(url)
 
 text = ""
@@ -20,6 +20,7 @@ name_and_directory_file = "/tmp/" + str(random.getrandbits(128)) + ".pdf"
 
 with open(name_and_directory_file, 'wb') as f:
     f.write(response.content)
+    f.close()
 
 pdf = open(name_and_directory_file, "rb")
 read_pdf = PyPDF2.PdfFileReader(pdf)
