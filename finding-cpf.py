@@ -9,11 +9,11 @@ from io import open
 from urllib.parse import urlencode
 
 import PyPDF2
-import google
 import requests
 from PyPDF2.utils import PdfReadError
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
+from google import google
 from openpyxl import load_workbook
 from pdf2image import convert_from_path
 from pymongo import MongoClient
@@ -21,11 +21,16 @@ from pytesseract import image_to_string
 from requests.exceptions import HTTPError
 from urllib3.exceptions import InsecureRequestWarning
 
-# client = MongoClient('localhost', 27017)
 client = MongoClient(
-    "mongodb://dbIntelligentMindInformation:MoRLaRGAbLevoChutL@intelligent-mind-information-pnrix.mongodb.net/mining-name?retryWrites=true&w=majority")
-db = client.miningNames
-tablesNames = db.names
+    "mongodb+srv://{user}:{password}@intelligent-mind-information-pnrix.mongodb.net/{db}?retryWrites=true&w=majority" \
+        .format(
+        user=os.getenv('URL_CONNECTION_MONGODB_MINING_NAME_USER'),
+        password=os.getenv('URL_CONNECTION_MONGODB_MINING_NAME_PASS'),
+        db=os.getenv('URL_CONNECTION_MONGODB_MINING_NAME_DB')
+    )
+)
+db = client['mining-name']
+tablesNames = db['names-claimants-lawyers']
 tablesConfiguration = db.configuration
 
 
@@ -99,7 +104,8 @@ def read_pdf(response):
 
                 for img in images_from_path:
                     text += image_to_string(img, lang='por')
-        del images_from_path
+
+                del images_from_path
         os.remove(name_and_directory_file)
     except PdfReadError:
         log()
@@ -116,7 +122,7 @@ if os.path.exists("finding-cpf.csv"):
 file = open("finding-cpf.csv", "w+")
 file.close()
 
-workbook = load_workbook('/files-imports/lista-controle-precatorios.xlsx')
+workbook = load_workbook('./files-imports/lista-control-precatorio-14-10-2019-gpi.xlsx')
 sheet = workbook.active
 row_count = sheet.max_row
 
@@ -137,7 +143,7 @@ headers = {
 }
 
 findOne = tablesConfiguration.find_one()
-count = findOne['rowFromCSV']
+count = findOne.get('rowFromCSV')
 print(count)
 
 ua = UserAgent(use_cache_server=False, verify_ssl=False)
@@ -146,11 +152,13 @@ with open('finding-cpf.csv', 'a') as csvfile:
 
     for i in range(row_count):
         if i != 0 and i >= count - 1:
-            name = sheet.cell(row=i + 1, column=2).value
+            name = sheet.cell(row=i + 1, column=4).value.strip()
+            lawyer = sheet.cell(row=i + 1, column=8).value.strip()
+            values = sheet.cell(row=i + 1, column=12).value
 
             tablesConfiguration.update_one({"_id": findOne["_id"]}, {"$set": {"rowFromCSV": count}})
 
-            search_results = google.search('"vestibular" AND "' + name + '"', 1)
+            search_results = google.search('"' + lawyer + '" AND "' + name + '"', 1)
 
             for result in search_results:
                 try:
@@ -197,6 +205,8 @@ with open('finding-cpf.csv', 'a') as csvfile:
                                     "phone": findPhone,
                                     "cpf": list_cpfs,
                                     "link": link,
+                                    "values": values,
+                                    "lawyer": lawyer
                                 })
                                 print(i + 1, name, link, str(findPhone), str(findCPF))
                                 pass
