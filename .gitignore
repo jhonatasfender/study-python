@@ -4,4 +4,4 @@ venv
 .env
 **/.~lock*
 *.xlsx
-
+*.log
