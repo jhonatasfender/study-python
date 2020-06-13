@@ -38,10 +38,10 @@ class ReadPDF:
             del read_pdf_extractor
 
             with tempfile.TemporaryDirectory() as path:
-                for page in range(1, max_pages_pdf, 10):
+                for page in range(1, max_pages_pdf, 100):
                     images_from_path = convert_from_path(
                         name_and_directory_file, dpi=200, first_page=page,
-                        last_page=min(page + 10 - 1, max_pages_pdf), output_folder=path
+                        last_page=min(page + 100 - 1, max_pages_pdf), output_folder=path
                     )
 
                     for img in images_from_path:

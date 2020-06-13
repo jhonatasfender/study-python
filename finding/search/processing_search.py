@@ -78,7 +78,7 @@ class ProcessingSearch:
     ):
         html_text = self.respose_link(result, i, name, link)
 
-        if html_text.count(name):
+        if html_text.count(name) and html_text.count(lawyer):
             find_phone = re.findall(r"(\(\d{2}\)\s?\d{4,5}-?\d{4})", html_text)
             find_cpf = re.findall(r"(\d{3}\.\d{3}\.\d{3}-\d{2})", html_text)
 
@@ -107,6 +107,9 @@ class ProcessingSearch:
 
             self.connection.get_configuration() \
                 .update_one({"_id": self.__configuration.get('_id')}, {"$set": {"rowFromCSV": self.__count}})
+
+            if not lawyer or not values:
+                return
 
             search_results = google.search('"' + lawyer + '" AND "' + name + '"', 1)
 

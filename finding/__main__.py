@@ -1,6 +1,11 @@
 from finding.args import Args
 from finding.search.search import Search
 
-if __name__ == '__main__':
+
+def main():
     args = Args()
     Search(args.parse())
+
+
+if __name__ == '__main__':
+    main()
