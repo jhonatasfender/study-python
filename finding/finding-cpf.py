@@ -69,7 +69,7 @@ def log():
         str(i + 1) + "\n" +
         "*" + name + "*\n" +
         "[link](" + link + ")\n" +
-        "```log" + traceback.format_exc() + "```"
+        "```log.py" + traceback.format_exc() + "```"
     )
     print(str([i + 1, name, link]))
     print(traceback.format_exc())
