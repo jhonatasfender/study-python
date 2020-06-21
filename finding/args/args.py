@@ -11,7 +11,11 @@ class Args:
         '--db-pass': 'Senha do banco de dado',
         '--db': 'Nome da base de dados',
         '--name-table-of-term': """Nessa parte terá que ser colocado conforme o nome da tabela que será gravada
-        de preferencia o nome do termo dá pesquisa"""
+        de preferencia o nome do termo dá pesquisa""",
+        '--only-one-url': 'Esse comando serve para quando quer processar somente uma url se a necessidade '
+                          'de passar por um arquivo',
+        '--only-one-name-for-search': 'Assim que o --only-one-url for preenchido deverá preencher também esse parâmetro'
+                                      'para que possa ser pesquisado também junto com a url'
     }
 
     def __init__(self):
