@@ -11,7 +11,9 @@ class Args:
         '--db-pass': 'Senha do banco de dado',
         '--db': 'Nome da base de dados',
         '--name-table-of-term': """Nessa parte terá que ser colocado conforme o nome da tabela que será gravada
-        de preferencia o nome do termo dá pesquisa"""
+        de preferencia o nome do termo dá pesquisa""",
+        '--name-term': 'Termo a ser pesquisado ',
+        '--name-search': 'esse é nome da pessoa que será pesquisado'
     }
 
     def __init__(self):
