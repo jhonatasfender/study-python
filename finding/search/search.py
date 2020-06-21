@@ -2,6 +2,7 @@ import os
 
 from openpyxl import load_workbook
 
+from finding.exception import SearchException
 from finding.search.connection import Connection
 from finding.search.processing_search import ProcessingSearch
 
@@ -13,14 +14,25 @@ class Search:
         self.args = args
         self.clear_console()
         self.connection = Connection(args)
-        self.__get_csv()
-        self.assign_current_reading_value_file()
 
-        self.read()
+        if not self.args.name_term and not self.args.name_search:
+            self.assign_current_reading_value_file()
+            self.__get_csv()
+            self.read_csv()
+        elif self.args.name_term and self.args.name_search:
+            self.processing_name()
+        else:
+            SearchException.choose_a_file_mining_type_or_simple_name()
 
-    def read(self):
+    def processing_name(self):
+        ProcessingSearch.start_single_name(
+            self.connection, self.__configuration,
+            self.args.name_search, self.args.name_term
+        )
+
+    def read_csv(self):
         for i in range(self.row_count):
-            ProcessingSearch.start(
+            ProcessingSearch.start_with_csv(
                 self.connection, i, self.sheet, self.__configuration,
                 self.__configuration.get('rowFromCSV')
             )

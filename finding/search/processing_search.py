@@ -25,17 +25,64 @@ class ProcessingSearch:
     }
 
     @staticmethod
-    def start(connection, i, sheet, configuration, count):
-        start = ProcessingSearch(connection, sheet, configuration, count)
+    def start_with_csv(connection, i, sheet, configuration, count):
+        start = ProcessingSearch(
+            connection=connection,
+            sheet=sheet,
+            configuration=configuration,
+            count=count
+        )
         start.row(i)
 
-    def __init__(self, connection, sheet, configuration, count):
+    @staticmethod
+    def start_single_name(connection, configuration, name, term):
+        start = ProcessingSearch(
+            connection=connection,
+            configuration=configuration
+        )
+        start.search_single_name(name, term)
+
+    def __init__(self, connection, configuration, sheet=None, count=None):
         self.connection = connection
         self.sheet = sheet
         self.__configuration = configuration
         self.__count = count
 
-    def respose_link(self, result, i, name, link):
+    def search_single_name(self, name, term):
+
+        search_results = google.search('"' + name + '" AND "' + term + '"', 1)
+
+        for result in search_results:
+            find_phone = []
+            find_cpf = []
+            find_cnpj = []
+            try:
+                link = result.link
+                html_text = self.response_link(result=result, name=name)
+
+                for m in re.finditer(name.upper(), html_text.upper()):
+                    [start, end] = m.span()
+
+                    html = html_text[start - 200:end + 200]
+
+                    find_phone = find_phone + re.findall(r"(\(\d{2}\)\s?\d{4,5}-?\d{4})", html)
+                    find_cpf = find_cpf + re.findall(r"(\d{3}\.\d{3}\.\d{3}-\d{2})", html)
+                    find_cnpj = find_cnpj + re.findall(r"\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}", html)
+
+                valid_if_exists_url = self.connection.table().find({"link": link}).count() == 0
+                if valid_if_exists_url and (len(find_phone) or len(find_cpf)):
+                    find_phone = list(dict.fromkeys(find_phone))
+                    find_cpf = list(dict.fromkeys(find_cpf))
+                    find_cnpj = list(dict.fromkeys(find_cnpj))
+                    self.save_table_phone_and_cpf_cpnj(name, find_phone, find_cpf, find_cnpj, link)
+                    print(name, str(find_phone), str(find_cpf), str(find_cnpj))
+            except Exception:
+                Logger.log(name=name, link=result.link)
+                break
+
+        time.sleep(random.randint(1, 30))
+
+    def response_link(self, result, i=None, name=None, link=None):
         html_text = None
         try:
             response = requests.get(result.link, headers=self.__headers)
@@ -54,7 +101,7 @@ class ProcessingSearch:
         else:
             html_text = BeautifulSoup(response.text, "html.parser").text
 
-        return html_text
+        return re.sub(r"\n", r"", html_text)
 
     def save_table(self, name, find_phone, list_cpfs, link, values, lawyer):
         self.connection.table().insert_one({
@@ -66,6 +113,14 @@ class ProcessingSearch:
             "lawyer": lawyer
         })
 
+    def save_table_phone_and_cpf(self, name, find_phone, list_cpfs, link):
+        self.connection.table().insert_one({
+            "name": name,
+            "phone": find_phone,
+            "cpf": list_cpfs,
+            "link": link,
+        })
+
     @staticmethod
     def save_cpf(list_cpfs, values_cpfs):
         list_cpfs.append({
@@ -74,11 +129,11 @@ class ProcessingSearch:
         })
 
     def after_validating_that_link_already_exists(
-            self, result, i, name, link, values, lawyer
+        self, result, i, name, link, values, lawyer
     ):
-        html_text = self.respose_link(result, i, name, link)
+        html_text = self.response_link(result, i, name, link)
 
-        if html_text and html_text.count(name) and lawyer and html_text.count(lawyer):
+        if html_text.count(name):
             find_phone = re.findall(r"(\(\d{2}\)\s?\d{4,5}-?\d{4})", html_text)
             find_cpf = re.findall(r"(\d{3}\.\d{3}\.\d{3}-\d{2})", html_text)
 
@@ -89,15 +144,18 @@ class ProcessingSearch:
                 self.save_table(name, find_phone, list_cpfs, link, values, lawyer)
                 print(i + 1, name, link, str(find_phone), str(find_cpf))
 
-    def __processing_google_result(self, result, i, name, values, lawyer):
+    def __processing_google_result(self, result, name, i=None, values=None, lawyer=None):
         link = result.link
-        print(i + 1, name, link)
+        if i:
+            print(i + 1, name, link)
 
         if self.connection.table().find({"link": link}).count() == 0:
             self.after_validating_that_link_already_exists(
                 result, i, name, link, values, lawyer
             )
-        self.__count = i + 1
+
+        if i:
+            self.__count = i + 1
 
     def row(self, i):
         if i != 0 and i >= self.__count - 1:
@@ -121,3 +179,12 @@ class ProcessingSearch:
                     break
 
             time.sleep(random.randint(1, 30))
+
+    def save_table_phone_and_cpf_cpnj(self, name, find_phone, find_cpf, find_cnpj, link):
+        self.connection.table().insert_one({
+            "name": name,
+            "phone": find_phone,
+            "cpf": find_cpf,
+            "cnpj": find_cnpj,
+            "link": link,
+        })
