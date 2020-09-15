@@ -159,8 +159,8 @@ class ProcessingSearch:
 
     def row(self, i):
         if i != 0 and i >= self.__count - 1:
-            name = self.sheet.cell(row=i + 1, column=4).value.strip()
-            lawyer = self.sheet.cell(row=i + 1, column=8).value.strip()
+            name = self.sheet.cell(row=i + 1, column=4).value
+            lawyer = self.sheet.cell(row=i + 1, column=8).value
             values = self.sheet.cell(row=i + 1, column=12).value
 
             self.connection.get_configuration() \
@@ -169,7 +169,7 @@ class ProcessingSearch:
             if not lawyer or not values:
                 return
 
-            search_results = google.search('"' + lawyer + '" AND "' + name + '"', 1)
+            search_results = google.search('"' + lawyer.strip() + '" AND "' + name.strip() + '"', 1)
 
             for result in search_results:
                 try:
